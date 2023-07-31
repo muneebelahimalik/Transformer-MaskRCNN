@@ -1,8 +1,5 @@
 # Transformer-MaskRCNN for Apple Tree Disease Instance Segmentation
 
-![Apple Tree Diseases](https://github.com/muneebelahimalik/Transformer-MaskRCNN/assets/59524535/15eb6fd1-0481-4895-9f3a-bb07608dcfcf)
-
-
 ## Project Description
 Enhanced Mask R-CNN model for apple disease instance segmentation by integrating Transformer's multihead-attention mechanism for improved object detection accuracy.
 
