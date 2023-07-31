@@ -21,6 +21,34 @@ pip install -r requirements.txt
 3. Install the library (tmrcnn):
 python setup.py install
 
+## Folder Structure 
+
+Transformer-MaskRCNN/
+│
+├─ tmrcnn/
+│   ├── model.py
+│   ├── utils.py
+│   ├── config.py
+│   ├── visual.py
+│   └── _init_.py
+│
+├─ Apple_Disease_TMRCNN/
+│   ├── apple_disease_model_train.py
+│   ├── Aplle_Disease_inference_model.py
+│   ├── reorder_files_in_dataset.py
+│   └── dataset/
+│       ├── Apple_dataset.zip
+│       └── ...
+│
+├─ test_images/
+│   ├── unseen_1.jpg
+│   ├── unseen_2.jpg
+│   └── ...
+│
+├─ requirements.txt
+├─ setup.py
+└─ README.md
+
 ## Requirements
 
 - Python 3.6 or higher
