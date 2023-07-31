@@ -36,10 +36,11 @@ Transformer-MaskRCNN/
 │   ├── apple_disease_model_train.py
 │   ├── Apple_Disease_inference_model.py
 │   ├── reorder_files_in_dataset.py
-│   └── dataset/
-│       ├── Apple_dataset.zip
-│       └── ...
-│
+│   
+├──dataset/
+│   ├── Apple_dataset.zip
+│   └── ...
+|
 ├─ test_images/
 │   ├── unseen_1.jpg
 │   ├── unseen_2.jpg
