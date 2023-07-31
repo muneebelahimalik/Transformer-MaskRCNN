@@ -22,7 +22,7 @@ pip install -r requirements.txt
 python setup.py install
 
 ## Folder Structure 
-
+```
 Transformer-MaskRCNN/
 │
 ├─ tmrcnn/
@@ -30,11 +30,11 @@ Transformer-MaskRCNN/
 │   ├── utils.py
 │   ├── config.py
 │   ├── visual.py
-│   └── _init_.py
+│   └── __init__.py
 │
 ├─ Apple_Disease_TMRCNN/
 │   ├── apple_disease_model_train.py
-│   ├── Aplle_Disease_inference_model.py
+│   ├── Apple_Disease_inference_model.py
 │   ├── reorder_files_in_dataset.py
 │   └── dataset/
 │       ├── Apple_dataset.zip
@@ -49,6 +49,7 @@ Transformer-MaskRCNN/
 ├─ setup.py
 └─ README.md
 
+```
 ## Requirements
 
 - Python 3.6 or higher
