@@ -82,7 +82,7 @@ def compute_backbone_shapes(config, image_shape):
             for stride in config.BACKBONE_STRIDES])
             
 ############################################################
-#   New Function Additions
+#   Transformer Multi-Head Attention Function Additions
 ############################################################
 
 def _normalize_depth_vars(depth_k, depth_v, filters):
@@ -112,7 +112,7 @@ def _normalize_depth_vars(depth_k, depth_v, filters):
     return depth_k, depth_v
 
 
-class AttentionAugmentation2D(Layer):
+class MuliHeadAttention(Layer):
 
     def __init__(self, depth_k, depth_v, num_heads, relative=False, **kwargs):
         """
@@ -141,7 +141,7 @@ class AttentionAugmentation2D(Layer):
             -   [Batch, Depth_V, Height, Width] if
                 channels_first data format.
         """
-        super(AttentionAugmentation2D, self).__init__(**kwargs)
+        super(MuliHeadAttention, self).__init__(**kwargs)
 
         if depth_k % num_heads != 0:
             raise ValueError('`depth_k` (%d) is not divisible by `num_heads` (%d)' % (
@@ -338,11 +338,11 @@ class AttentionAugmentation2D(Layer):
             'num_heads': self.num_heads,
             'relative': self.relative,
         }
-        base_config = super(AttentionAugmentation2D, self).get_config()
+        base_config = super(MuliHeadAttention, self).get_config()
         return dict(list(base_config.items()) + list(config.items()))
 
 
-def augmented_conv2d(ip, filters, kernel_size=(3, 3), strides=(1, 1),
+def MultiHead_conv2d(ip, filters, kernel_size=(3, 3), strides=(1, 1),
                      depth_k=0.015625, depth_v=0.015625, num_heads=1, relative_encodings=False):
     """
     Builds an Attention Augmented Convolution block.
@@ -375,7 +375,7 @@ def augmented_conv2d(ip, filters, kernel_size=(3, 3), strides=(1, 1),
 
     # Augmented Attention Block
     qkv_conv = KL.Conv2D(2 * depth_k + depth_v, (1, 1), strides=strides)(ip)
-    attn_out = AttentionAugmentation2D(depth_k, depth_v, num_heads, relative_encodings)(qkv_conv)
+    attn_out = MuliHeadAttention(depth_k, depth_v, num_heads, relative_encodings)(qkv_conv)
     attn_out = KL.Conv2D(depth_v, kernel_size=(1, 1))(attn_out)
 
     output = concatenate([conv_out, attn_out], axis=channel_axis)
@@ -388,7 +388,7 @@ if __name__ == '__main__':
     from tensorflow.keras.models import Model
 
     ip = Input(shape=(32, 32, 3))
-    x = augmented_conv2d(ip, filters=20, kernel_size=(3, 3),
+    x = MultiHead_conv2d(ip, filters=20, kernel_size=(3, 3),
                          depth_k=0.2, depth_v=0.2,  # dk/v (0.2) * f_out (20) = 4
                          num_heads=4, relative_encodings=True)
 
@@ -501,7 +501,7 @@ def resnet_graph(input_image, architecture, stage5=False, train_bn=True,
     assert architecture in ["resnet50", "resnet101"]
     # Stage 1
     x = KL.ZeroPadding2D((3, 3))(input_image)
-    x = augmented_conv2d(x, filters=64, kernel_size=(7, 7), strides=(2, 2),
+    x = MultiHead_conv2d(x, filters=64, kernel_size=(7, 7), strides=(2, 2),
                          depth_k=depth_k, depth_v=depth_v, num_heads=num_heads,
                          relative_encodings=False)
     C1 = x = KL.MaxPooling2D((3, 3), strides=(2, 2), padding="same")(x)
