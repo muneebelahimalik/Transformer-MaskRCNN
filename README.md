@@ -1,15 +1,14 @@
 # Transformer-MaskRCNN for Apple Tree Disease Instance Segmentation
 
-![Apple Tree Diseases](/path/to/sample_image.jpg)
+![Apple Tree Diseases](https://github.com/muneebelahimalik/Transformer-MaskRCNN/assets/59524535/15eb6fd1-0481-4895-9f3a-bb07608dcfcf)
+
 
 ## Project Description
 Enhanced Mask R-CNN model for apple disease instance segmentation by integrating Transformer's multihead-attention mechanism for improved object detection accuracy.
 
-## Sample Images
+## Model Architecture
 
-![Sample 1](/path/to/sample_image_1.jpg)
-![Sample 2](/path/to/sample_image_2.jpg)
-![Sample 3](/path/to/sample_image_3.jpg)
+![Architecture](https://github.com/muneebelahimalik/Transformer-MaskRCNN/assets/59524535/f31a3952-cc3f-4776-be22-1b172471ce78)
 
 ## User Installation
 
@@ -47,6 +46,17 @@ To use the Transformer-MaskRCNN model for apple tree disease instance segmentati
 4. Evaluate the model: Use the evaluation script to assess the model's performance on a separate validation set.
 
 5. Make predictions: Apply the trained model to new images in the test_images folder using the prediction script.
+
+##COCO Weights
+
+The model was trained on the COCO Weights which you can download from the Google Drive link below
+[COCO Weights](https://drive.google.com/file/d/1hHV_eodAH8QEpNEH_gTP47UJ4h93HAB7/view?usp=sharing)
+
+## Trained Models
+
+In case you want to run my trained model, download it from the Google Drive link below.
+[TMask-RCNN Trained Model](https://drive.google.com/file/d/1rCWxYvmYygt9ToTQK3TC2D2ov_XRvDuf/view?usp=sharing)
+
 
 ## Credits
 
