@@ -74,7 +74,7 @@ To use the Transformer-MaskRCNN model for apple tree disease instance segmentati
 
 5. Make predictions: Apply the trained model to new images in the test_images folder using the prediction script.
 
-##COCO Weights
+## COCO Weights
 
 The model was trained on the COCO Weights which you can download from the Google Drive link below
 [COCO Weights](https://drive.google.com/file/d/1hHV_eodAH8QEpNEH_gTP47UJ4h93HAB7/view?usp=sharing)
