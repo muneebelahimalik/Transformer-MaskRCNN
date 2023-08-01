@@ -382,25 +382,6 @@ def MultiHead_conv2d(ip, filters, kernel_size=(3, 3), strides=(1, 1),
     output = BatchNorm(name='bn_aconv2d')(output)
     return output
 
-"""
-if __name__ == '__main__':
-    from tensorflow.keras.layers import Input
-    from tensorflow.keras.models import Model
-
-    ip = Input(shape=(32, 32, 3))
-    x = MultiHead_conv2d(ip, filters=20, kernel_size=(3, 3),
-                         depth_k=0.2, depth_v=0.2,  # dk/v (0.2) * f_out (20) = 4
-                         num_heads=4, relative_encodings=True)
-
-    model = Model(ip, x)
-    model.summary()
-
-    # Check if attention builds properly
-    x = tf.zeros((1, 32, 32, 3))
-    y = model(x)
-    print("Attention Augmented Conv out shape : ", y.shape)
-"""
-
 
 ############################################################
 #  Resnet Graph
