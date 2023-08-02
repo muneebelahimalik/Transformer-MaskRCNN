@@ -17,7 +17,6 @@ git clone https://github.com/muneebelahimalik/Transformer-MaskRCNN
 2. Install required packages:
 pip install -r requirements.txt
 
-
 3. Install the library (tmrcnn):
 python setup.py install
 
