@@ -83,7 +83,6 @@ The model was trained on the COCO Weights which you can download from the Google
 In case you want to run my trained model, download it from the Google Drive link below.
 [TMask-RCNN Trained Model](https://drive.google.com/file/d/1rCWxYvmYygt9ToTQK3TC2D2ov_XRvDuf/view?usp=sharing)
 
-
 ## Credits
 
 Credit goes to [Matter,Inc](https://github.com/matterport) for orignal implementation of [Mask RCNN](https://github.com/matterport/Mask_RCNN)
