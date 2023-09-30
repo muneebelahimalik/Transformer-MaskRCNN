@@ -87,4 +87,3 @@ In case you want to run my trained model, download it from the Google Drive link
 ## Credits
 
 Credit goes to [Matter,Inc](https://github.com/matterport) for orignal implementation of [Mask RCNN](https://github.com/matterport/Mask_RCNN)
-
